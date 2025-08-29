@@ -134,10 +134,10 @@ END:VCARD"""
             # Navy background with subtle gradient
             draw.rectangle([0, 0, width, height], fill=colors['primary'])
             
-            # Text positioning
-            name_font = self.get_font('serif_elegant', 48)
-            title_font = self.get_font('sans_modern', 24)
-            contact_font = self.get_font('sans_modern', 18)
+            # Text positioning with larger fonts
+            name_font = self.get_font('serif_elegant', 56)
+            title_font = self.get_font('sans_modern', 28)
+            contact_font = self.get_font('sans_modern', 22)
             
             # Name
             if card_data.get('name'):
@@ -149,12 +149,12 @@ END:VCARD"""
             if card_data.get('company'):
                 draw.text((50, 140), card_data.get('company', ''), fill=colors['highlight'], font=title_font)
             
-            # Contact info
+            # Contact info with better spacing
             y_pos = 200
             for field in ['email', 'phone', 'website', 'address']:
                 if card_data.get(field):
                     draw.text((50, y_pos), card_data[field], fill=colors['light'], font=contact_font)
-                    y_pos += 22
+                    y_pos += 30
             
             # Logo placement (top right)
             if logo_img:
@@ -173,10 +173,10 @@ END:VCARD"""
             gradient_img = self.create_gradient(width, height, colors['primary'], colors['secondary'], 'horizontal')
             overlays.append((gradient_img, (0, 0)))
             
-            # Add text on gradient
-            name_font = self.get_font('sans_modern', 44)
-            title_font = self.get_font('sans_modern', 22)
-            contact_font = self.get_font('sans_modern', 16)
+            # Add text on gradient with larger fonts
+            name_font = self.get_font('sans_modern', 52)
+            title_font = self.get_font('sans_modern', 26)
+            contact_font = self.get_font('sans_modern', 20)
             
             if card_data.get('name'):
                 draw.text((50, 50), card_data.get('name', ''), fill='white', font=name_font)
@@ -185,23 +185,23 @@ END:VCARD"""
             if card_data.get('company'):
                 draw.text((50, 140), card_data.get('company', ''), fill='white', font=title_font)
             
-            # Contact info for gradient template
-            y_pos = 180
+            # Contact info for gradient template with better spacing
+            y_pos = 185
             for field in ['email', 'phone', 'website', 'address']:
                 if card_data.get(field):
                     draw.text((50, y_pos), card_data[field], fill='white', font=contact_font)
-                    y_pos += 22
+                    y_pos += 28
         
         elif template == 'minimalist_pro':
             # Clean white background with accent line
             draw.rectangle([0, 0, width, height], fill='#ffffff')
             draw.rectangle([0, 0, 10, height], fill=colors['accent'])
             
-            # Black text on white
+            # Black text on white with larger fonts
             text_color = '#000000'
-            name_font = self.get_font('sans_modern', 42)
-            title_font = self.get_font('sans_modern', 20)
-            contact_font = self.get_font('sans_modern', 16)
+            name_font = self.get_font('sans_modern', 50)
+            title_font = self.get_font('sans_modern', 24)
+            contact_font = self.get_font('sans_modern', 20)
             
             if card_data.get('name'):
                 draw.text((30, 30), card_data.get('name', ''), fill=text_color, font=name_font)
@@ -210,12 +210,12 @@ END:VCARD"""
             if card_data.get('company'):
                 draw.text((30, 110), card_data.get('company', ''), fill=colors['accent'], font=title_font)
                 
-            # Contact info
-            y_pos = 150
+            # Contact info with improved spacing
+            y_pos = 155
             for field in ['email', 'phone', 'website', 'address']:
                 if card_data.get(field):
                     draw.text((30, y_pos), card_data[field], fill=text_color, font=contact_font)
-                    y_pos += 18
+                    y_pos += 25
             
             # Logo and QR for minimalist template
             if logo_img:
@@ -236,18 +236,18 @@ END:VCARD"""
             contact_font = self.get_font('sans_modern', 16)
             
             if card_data.get('name'):
-                draw.text((50, 50), card_data.get('name', ''), fill=colors['text'], font=name_font)
+                draw.text((50, 45), card_data.get('name', ''), fill=colors['text'], font=name_font)
             if card_data.get('job_title'):
-                draw.text((50, 110), card_data.get('job_title', ''), fill=colors['accent'], font=title_font)
+                draw.text((50, 115), card_data.get('job_title', ''), fill=colors['accent'], font=title_font)
             if card_data.get('company'):
-                draw.text((50, 140), card_data.get('company', ''), fill=colors['highlight'], font=title_font)
+                draw.text((50, 150), card_data.get('company', ''), fill=colors['highlight'], font=title_font)
             
-            # Contact info for default template
-            y_pos = 180
+            # Contact info for default template with better spacing
+            y_pos = 190
             for field in ['email', 'phone', 'website', 'address']:
                 if card_data.get(field):
                     draw.text((50, y_pos), card_data[field], fill=colors['light'], font=contact_font)
-                    y_pos += 20
+                    y_pos += 26
         
         return overlays
 
