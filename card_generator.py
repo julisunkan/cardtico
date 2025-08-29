@@ -151,22 +151,22 @@ END:VCARD"""
             
             # Contact info
             y_pos = 200
-            for field in ['email', 'phone', 'website']:
+            for field in ['email', 'phone', 'website', 'address']:
                 if card_data.get(field):
                     draw.text((50, y_pos), card_data[field], fill=colors['light'], font=contact_font)
-                    y_pos += 25
+                    y_pos += 22
             
-            # Logo placement
+            # Logo placement (top right)
             if logo_img:
-                logo_size = (80, 80)
+                logo_size = (100, 100)
                 logo_resized = logo_img.resize(logo_size, Image.Resampling.LANCZOS)
-                overlays.append((logo_resized, (width - 130, 50)))
+                overlays.append((logo_resized, (width - 120, 20)))
             
-            # QR code
+            # QR code (bottom right)
             if qr_img:
-                qr_size = (80, 80)
+                qr_size = (100, 100)
                 qr_resized = qr_img.resize(qr_size, Image.Resampling.LANCZOS)
-                overlays.append((qr_resized, (width - 130, height - 130)))
+                overlays.append((qr_resized, (width - 120, height - 120)))
         
         elif template == 'modern_gradient':
             # Create diagonal gradient background
@@ -184,6 +184,13 @@ END:VCARD"""
                 draw.text((50, 110), card_data.get('job_title', ''), fill='white', font=title_font)
             if card_data.get('company'):
                 draw.text((50, 140), card_data.get('company', ''), fill='white', font=title_font)
+            
+            # Contact info for gradient template
+            y_pos = 180
+            for field in ['email', 'phone', 'website', 'address']:
+                if card_data.get(field):
+                    draw.text((50, y_pos), card_data[field], fill='white', font=contact_font)
+                    y_pos += 22
         
         elif template == 'minimalist_pro':
             # Clean white background with accent line
@@ -197,18 +204,29 @@ END:VCARD"""
             contact_font = self.get_font('sans_modern', 16)
             
             if card_data.get('name'):
-                draw.text((30, 50), card_data.get('name', ''), fill=text_color, font=name_font)
+                draw.text((30, 30), card_data.get('name', ''), fill=text_color, font=name_font)
             if card_data.get('job_title'):
-                draw.text((30, 100), card_data.get('job_title', ''), fill=colors['primary'], font=title_font)
+                draw.text((30, 80), card_data.get('job_title', ''), fill=colors['primary'], font=title_font)
             if card_data.get('company'):
-                draw.text((30, 130), card_data.get('company', ''), fill=colors['accent'], font=title_font)
+                draw.text((30, 110), card_data.get('company', ''), fill=colors['accent'], font=title_font)
                 
             # Contact info
-            y_pos = 180
-            for field in ['email', 'phone', 'website']:
+            y_pos = 150
+            for field in ['email', 'phone', 'website', 'address']:
                 if card_data.get(field):
                     draw.text((30, y_pos), card_data[field], fill=text_color, font=contact_font)
-                    y_pos += 20
+                    y_pos += 18
+            
+            # Logo and QR for minimalist template
+            if logo_img:
+                logo_size = (80, 80)
+                logo_resized = logo_img.resize(logo_size, Image.Resampling.LANCZOS)
+                overlays.append((logo_resized, (width - 100, 20)))
+            
+            if qr_img:
+                qr_size = (80, 80)
+                qr_resized = qr_img.resize(qr_size, Image.Resampling.LANCZOS)
+                overlays.append((qr_resized, (width - 100, height - 100)))
         
         else:
             # Default template - fallback
@@ -223,6 +241,13 @@ END:VCARD"""
                 draw.text((50, 110), card_data.get('job_title', ''), fill=colors['accent'], font=title_font)
             if card_data.get('company'):
                 draw.text((50, 140), card_data.get('company', ''), fill=colors['highlight'], font=title_font)
+            
+            # Contact info for default template
+            y_pos = 180
+            for field in ['email', 'phone', 'website', 'address']:
+                if card_data.get(field):
+                    draw.text((50, y_pos), card_data[field], fill=colors['light'], font=contact_font)
+                    y_pos += 20
         
         return overlays
 
