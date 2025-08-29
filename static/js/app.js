@@ -129,34 +129,7 @@ class BusinessCardApp {
     }
 
     handlePWAInstall() {
-        let deferredPrompt;
-        
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            
-            // Show install button
-            const installBtn = document.createElement('button');
-            installBtn.className = 'btn btn-outline-light btn-sm install-btn';
-            installBtn.innerHTML = '<i class="fas fa-download me-2"></i>Install App';
-            installBtn.style.position = 'fixed';
-            installBtn.style.top = '20px';
-            installBtn.style.right = '20px';
-            installBtn.style.zIndex = '1001';
-            
-            installBtn.addEventListener('click', () => {
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('User accepted the install prompt');
-                        installBtn.remove();
-                    }
-                    deferredPrompt = null;
-                });
-            });
-            
-            document.body.appendChild(installBtn);
-        });
+        // PWA installation handling removed per user request
     }
 
     initNavigation() {
