@@ -1,0 +1,4 @@
+name,job_title,company,email,phone,website,address,template,color_scheme,include_qr
+"John Smith","Senior Designer","Creative Agency","john@agency.com","(555) 123-4567","www.agency.com","123 Main St, City, State","executive_premium","executive_navy","true"
+"Sarah Johnson","Marketing Director","Tech Company","sarah@tech.com","(555) 234-5678","www.tech.com","456 Oak Ave, City, State","modern_gradient","tech_cyan","false"
+"Mike Johnson","Financial Advisor","Investment Firm","mike@finance.com","(555) 555-5555","www.finance.com","789 Pine St, City, State","minimalist_pro","finance_green","true"
