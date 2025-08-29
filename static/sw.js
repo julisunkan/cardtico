@@ -1,7 +1,7 @@
 // Business Card Generator PWA - Service Worker
-const CACHE_NAME = 'business-card-generator-v1.0.5';
-const STATIC_CACHE = 'static-v6';
-const DYNAMIC_CACHE = 'dynamic-v6';
+const CACHE_NAME = 'business-card-generator-v1.0.6';
+const STATIC_CACHE = 'static-v7';
+const DYNAMIC_CACHE = 'dynamic-v7';
 
 // Static assets to cache immediately
 const STATIC_ASSETS = [
