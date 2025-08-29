@@ -128,16 +128,11 @@ END:VCARD"""
     def apply_template(self, draw, card_data, colors, template, logo_img=None, qr_img=None):
         """Apply specific template design"""
         width, height = self.card_width, self.card_height
+        overlays = []
         
         if template == 'executive_premium':
             # Navy background with subtle gradient
             draw.rectangle([0, 0, width, height], fill=colors['primary'])
-            
-            # Logo placement
-            if logo_img:
-                logo_size = (120, 120)
-                logo_img = logo_img.resize(logo_size, Image.Resampling.LANCZOS)
-                return logo_img, (50, 50)
             
             # Text positioning
             name_font = self.get_font('serif_elegant', 48)
@@ -145,29 +140,50 @@ END:VCARD"""
             contact_font = self.get_font('sans_modern', 18)
             
             # Name
-            draw.text((50, 200), card_data.get('name', ''), fill=colors['text'], font=name_font)
+            if card_data.get('name'):
+                draw.text((50, 50), card_data.get('name', ''), fill=colors['text'], font=name_font)
             # Title
-            draw.text((50, 260), card_data.get('job_title', ''), fill=colors['accent'], font=title_font)
+            if card_data.get('job_title'):
+                draw.text((50, 110), card_data.get('job_title', ''), fill=colors['accent'], font=title_font)
             # Company
-            draw.text((50, 290), card_data.get('company', ''), fill=colors['highlight'], font=title_font)
+            if card_data.get('company'):
+                draw.text((50, 140), card_data.get('company', ''), fill=colors['highlight'], font=title_font)
             
             # Contact info
-            y_pos = 350
+            y_pos = 200
             for field in ['email', 'phone', 'website']:
                 if card_data.get(field):
                     draw.text((50, y_pos), card_data[field], fill=colors['light'], font=contact_font)
                     y_pos += 25
             
+            # Logo placement
+            if logo_img:
+                logo_size = (80, 80)
+                logo_resized = logo_img.resize(logo_size, Image.Resampling.LANCZOS)
+                overlays.append((logo_resized, (width - 130, 50)))
+            
             # QR code
             if qr_img:
-                qr_size = (100, 100)
-                qr_img = qr_img.resize(qr_size, Image.Resampling.LANCZOS)
-                return qr_img, (width - 150, height - 150)
+                qr_size = (80, 80)
+                qr_resized = qr_img.resize(qr_size, Image.Resampling.LANCZOS)
+                overlays.append((qr_resized, (width - 130, height - 130)))
         
         elif template == 'modern_gradient':
             # Create diagonal gradient background
             gradient_img = self.create_gradient(width, height, colors['primary'], colors['secondary'], 'horizontal')
-            return gradient_img, (0, 0)
+            overlays.append((gradient_img, (0, 0)))
+            
+            # Add text on gradient
+            name_font = self.get_font('sans_modern', 44)
+            title_font = self.get_font('sans_modern', 22)
+            contact_font = self.get_font('sans_modern', 16)
+            
+            if card_data.get('name'):
+                draw.text((50, 50), card_data.get('name', ''), fill='white', font=name_font)
+            if card_data.get('job_title'):
+                draw.text((50, 110), card_data.get('job_title', ''), fill='white', font=title_font)
+            if card_data.get('company'):
+                draw.text((50, 140), card_data.get('company', ''), fill='white', font=title_font)
         
         elif template == 'minimalist_pro':
             # Clean white background with accent line
@@ -180,13 +196,35 @@ END:VCARD"""
             title_font = self.get_font('sans_modern', 20)
             contact_font = self.get_font('sans_modern', 16)
             
-            draw.text((30, 50), card_data.get('name', ''), fill=text_color, font=name_font)
-            draw.text((30, 100), card_data.get('job_title', ''), fill=colors['primary'], font=title_font)
-            draw.text((30, 130), card_data.get('company', ''), fill=colors['accent'], font=title_font)
+            if card_data.get('name'):
+                draw.text((30, 50), card_data.get('name', ''), fill=text_color, font=name_font)
+            if card_data.get('job_title'):
+                draw.text((30, 100), card_data.get('job_title', ''), fill=colors['primary'], font=title_font)
+            if card_data.get('company'):
+                draw.text((30, 130), card_data.get('company', ''), fill=colors['accent'], font=title_font)
+                
+            # Contact info
+            y_pos = 180
+            for field in ['email', 'phone', 'website']:
+                if card_data.get(field):
+                    draw.text((30, y_pos), card_data[field], fill=text_color, font=contact_font)
+                    y_pos += 20
         
-        # Add more template implementations here...
+        else:
+            # Default template - fallback
+            draw.rectangle([0, 0, width, height], fill=colors['primary'])
+            name_font = self.get_font('sans_modern', 40)
+            title_font = self.get_font('sans_modern', 20)
+            contact_font = self.get_font('sans_modern', 16)
+            
+            if card_data.get('name'):
+                draw.text((50, 50), card_data.get('name', ''), fill=colors['text'], font=name_font)
+            if card_data.get('job_title'):
+                draw.text((50, 110), card_data.get('job_title', ''), fill=colors['accent'], font=title_font)
+            if card_data.get('company'):
+                draw.text((50, 140), card_data.get('company', ''), fill=colors['highlight'], font=title_font)
         
-        return None, None
+        return overlays
 
     def generate_card(self, card_data, export_format, logo_path=None):
         """Generate a single card"""
@@ -213,12 +251,16 @@ END:VCARD"""
         
         # Apply template
         template = card_data.get('template', 'executive_premium')
-        overlay, position = self.apply_template(draw, card_data, colors, template, logo_img, qr_img)
+        overlays = self.apply_template(draw, card_data, colors, template, logo_img, qr_img)
         
         # Paste overlays
-        if overlay and position:
-            if isinstance(overlay, Image.Image):
-                img.paste(overlay, position, overlay if overlay.mode == 'RGBA' else None)
+        if overlays:
+            for overlay, position in overlays:
+                if isinstance(overlay, Image.Image):
+                    if overlay.mode == 'RGBA':
+                        img.paste(overlay, position, overlay)
+                    else:
+                        img.paste(overlay, position)
         
         # Generate filename
         name_safe = card_data.get('name', 'card').replace(' ', '_').lower()
@@ -243,13 +285,16 @@ END:VCARD"""
             filepath = os.path.join('exports', filename)
             
             # Convert PIL image to PDF
-            img_bytes = BytesIO()
-            img.save(img_bytes, format='PNG')
-            img_bytes.seek(0)
+            temp_png_path = filepath.replace('.pdf', '_temp.png')
+            img.save(temp_png_path, 'PNG')
             
             c = canvas.Canvas(filepath, pagesize=(3.5*inch, 2*inch))
-            c.drawImage(img_bytes, 0, 0, width=3.5*inch, height=2*inch)
+            c.drawImage(temp_png_path, 0, 0, width=3.5*inch, height=2*inch)
             c.save()
+            
+            # Clean up temp file
+            import os
+            os.remove(temp_png_path)
         
         elif export_format == 'html':
             filename = f"{name_safe}_{timestamp}.html"
