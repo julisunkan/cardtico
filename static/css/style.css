@@ -406,10 +406,11 @@ body {
 
 .preview-cards {
   display: flex;
-  gap: 1rem;
+  gap: 0.6rem;
   overflow-x: auto;
   padding-bottom: 0.5rem;
   -webkit-overflow-scrolling: touch;
+  justify-content: space-between;
 }
 
 .preview-card {
@@ -421,16 +422,16 @@ body {
 }
 
 .preview-card span {
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  margin-top: 0.4rem;
   opacity: 0.8;
 }
 
 .card-mini {
-  width: 100px;
-  height: 60px;
-  border-radius: 8px;
-  padding: 0.5rem;
+  width: 80px;
+  height: 50px;
+  border-radius: 6px;
+  padding: 0.4rem;
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-light);
@@ -454,6 +455,22 @@ body {
   color: #1f2937;
 }
 
+.card-mini.creative {
+  background: linear-gradient(135deg, #7c2d12, #a21caf);
+}
+
+.card-mini.healthcare {
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+}
+
+.card-mini.tech {
+  background: linear-gradient(135deg, #0e7490, #0891b2);
+}
+
+.card-mini.legal {
+  background: linear-gradient(135deg, #7f1d1d, #991b1b);
+}
+
 .mini-content {
   height: 100%;
   display: flex;
@@ -462,14 +479,16 @@ body {
 }
 
 .mini-name {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 600;
   margin-bottom: 0.1rem;
+  line-height: 1.1;
 }
 
 .mini-title {
-  font-size: 0.5rem;
+  font-size: 0.45rem;
   opacity: 0.8;
+  line-height: 1.1;
 }
 
 /* Hero Section */
