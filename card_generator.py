@@ -293,7 +293,6 @@ END:VCARD"""
             c.save()
             
             # Clean up temp file
-            import os
             os.remove(temp_png_path)
         
         elif export_format == 'html':
