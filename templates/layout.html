@@ -56,17 +56,23 @@
         {% block content %}{% endblock %}
     </div>
     
+    <!-- Offline Indicator -->
+    <div class="offline-indicator">
+        <i class="fas fa-wifi-slash"></i>
+        Offline
+    </div>
+    
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
         <a href="{{ url_for('index') }}" class="nav-item {% if request.endpoint == 'index' %}active{% endif %}">
             <i class="fas fa-home"></i>
             <span>Home</span>
         </a>
-        <a href="{{ url_for('create') }}" class="nav-item {% if request.endpoint == 'create' %}active{% endif %}">
+        <a href="{{ url_for('create') }}" class="nav-item offline-capable {% if request.endpoint == 'create' %}active{% endif %}">
             <i class="fas fa-plus-circle"></i>
             <span>Create</span>
         </a>
-        <a href="{{ url_for('preview') }}" class="nav-item {% if request.endpoint == 'preview' %}active{% endif %}">
+        <a href="{{ url_for('preview') }}" class="nav-item offline-capable {% if request.endpoint == 'preview' %}active{% endif %}">
             <i class="fas fa-eye"></i>
             <span>Preview</span>
         </a>
