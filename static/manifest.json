@@ -1,0 +1,130 @@
+{
+  "name": "Business Card Generator",
+  "short_name": "CardGen",
+  "description": "Professional mobile-first PWA for generating custom business cards with advanced design templates, batch processing, and multiple export formats",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e3a8a",
+  "theme_color": "#1e3a8a",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["business", "productivity", "design"],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjU2OCIgdmlld0JveD0iMCAwIDMyMCA1NjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI1NjgiIGZpbGw9InVybCgjZ3JhZGllbnQwXzFfMikiLz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50MF8xXzIiIHgxPSIwIiB5MT0iMCIgeDI9IjMyMCIgeTI9IjU2OCI+PHN0b3Agc3RvcC1jb2xvcj0iIzFlM2E4YSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNiODJmNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjx0ZXh0IHg9IjE2MCIgeT0iMjAwIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC1mYW1pbHk9IkludGVyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5CdXNpbmVzcyBDYXJkPC90ZXh0Pjx0ZXh0IHg9IjE2MCIgeT0iMjMwIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIxOCIgZm9udC1mYW1pbHk9IkludGVyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5HZW5lcmF0b3I8L3RleHQ+PC9zdmc+",
+      "sizes": "320x568",
+      "type": "image/svg+xml",
+      "form_factor": "narrow",
+      "label": "Mobile screenshot showing app interface"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzY4IiBoZWlnaHQ9IjEwMjQiIHZpZXdCb3g9IjAgMCA3NjggMTAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNzY4IiBoZWlnaHQ9IjEwMjQiIGZpbGw9InVybCgjZ3JhZGllbnQwXzFfMykiLz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50MF8xXzMiIHgxPSIwIiB5MT0iMCIgeDI9Ijc2OCIgeTI9IjEwMjQiPjxzdG9wIHN0b3AtY29sb3I9IiMxZTNhOGEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMzYjgyZjYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48dGV4dCB4PSIzODQiIHk9IjQwMCIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtZmFtaWx5PSJJbnRlciIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QnVzaW5lc3MgQ2FyZCBHZW5lcmF0b3I8L3RleHQ+PHRleHQgeD0iMzg0IiB5PSI0NTAiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjI0IiBmb250LWZhbWlseT0iSW50ZXIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkRlc2t0b3AgVmlldyAtIENyZWF0ZSAmYW1wOyBFeHBvcnQ8L3RleHQ+PC9zdmc+",
+      "sizes": "768x1024",
+      "type": "image/svg+xml",
+      "form_factor": "wide",
+      "label": "Tablet screenshot showing desktop interface"
+    }
+  ],
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCA3MiA3MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHJ4PSIxNiIgZmlsbD0iIzFlM2E4YSIvPjxyZWN0IHg9IjE2IiB5PSIyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0id2hpdGUiLz48Y2lyY2xlIGN4PSI1NiIgY3k9IjU2IiByPSI0IiBmaWxsPSIjNjBhNWZhIi8+PC9zdmc+",
+      "sizes": "72x72",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHJ4PSIyMCIgZmlsbD0iIzFlM2E4YSIvPjxyZWN0IHg9IjIwIiB5PSIyOCIgd2lkdGg9IjU2IiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0id2hpdGUiLz48Y2lyY2xlIGN4PSI3NiIgY3k9Ijc2IiByPSI2IiBmaWxsPSIjNjBhNWZhIi8+PC9zdmc+",
+      "sizes": "96x96",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyOCIgaGVpZ2h0PSIxMjgiIHJ4PSIyOCIgZmlsbD0iIzFlM2E4YSIvPjxyZWN0IHg9IjI0IiB5PSIzNiIgd2lkdGg9IjgwIiBoZWlnaHQ9IjQ4IiByeD0iOCIgZmlsbD0id2hpdGUiLz48Y2lyY2xlIGN4PSI5NiIgY3k9Ijk2IiByPSI4IiBmaWxsPSIjNjBhNWZhIi8+PC9zdmc+",
+      "sizes": "128x128",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSI0NCIgZmlsbD0iIzFlM2E4YSIvPjxyZWN0IHg9IjMyIiB5PSI1NiIgd2lkdGg9IjEyOCIgaGVpZ2h0PSI4MCIgcng9IjEyIiBmaWxsPSJ3aGl0ZSIvPjxjaXJjbGUgY3g9IjE0NCIgY3k9IjE0NCIgcj0iMTIiIGZpbGw9IiM2MGE1ZmEiLz48L3N2Zz4=",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMTYiIGZpbGw9IiMxZTNhOGEiLz48cmVjdCB4PSI4MCIgeT0iMTQ0IiB3aWR0aD0iMzUyIiBoZWlnaHQ9IjIyNCIgcng9IjMyIiBmaWxsPSJ3aGl0ZSIvPjxjaXJjbGUgY3g9IjM4NCIgY3k9IjM4NCIgcj0iMzIiIGZpbGw9IiM2MGE1ZmEiLz48dGV4dCB4PSIyNTYiIHk9IjI0MCIgZmlsbD0iIzFlM2E4YSIgZm9udC1zaXplPSI0OCIgZm9udC1mYW1pbHk9IkludGVyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXdlaWdodD0iNjAwIj5DQVJEPC90ZXh0Pjx0ZXh0IHg9IjI1NiIgeT0iMjg4IiBmaWxsPSIjM2I4MmY2IiBmb250LXNpemU9IjMyIiBmb250LWZhbWlseT0iSW50ZXIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdFTjwvdGV4dD48L3N2Zz4=",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyOCIgaGVpZ2h0PSIxMjgiIHJ4PSIyOCIgZmlsbD0iIzFlM2E4YSIvPjxtYXNrIGlkPSJtYXNrIj48cmVjdCB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgZmlsbD0iYmxhY2siLz48cmVjdCB4PSIyNCIgeT0iMzYiIHdpZHRoPSI4MCIgaGVpZ2h0PSI0OCIgcng9IjgiIGZpbGw9IndoaXRlIi8+PC9tYXNrPjx1c2UgaHJlZj0iI21hc2siLz48L3N2Zz4=",
+      "sizes": "128x128",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Create New Card",
+      "short_name": "Create",
+      "description": "Start creating a new business card",
+      "url": "/create",
+      "icons": [
+        {
+          "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHJ4PSIyMCIgZmlsbD0iIzEwYjk4MSIvPjxwYXRoIGQ9Ik00OCAyNFY3Mk00MiA0OEg3MiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4=",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Batch Processing",
+      "short_name": "Batch",
+      "description": "Process multiple cards from CSV",
+      "url": "/batch",
+      "icons": [
+        {
+          "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHJ4PSIyMCIgZmlsbD0iIzhjNWNmNiIvPjxyZWN0IHg9IjE2IiB5PSIyNCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjEyIiByeD0iNCIgZmlsbD0id2hpdGUiLz48cmVjdCB4PSIxNiIgeT0iNDIiIHdpZHRoPSI2NCIgaGVpZ2h0PSIxMiIgcng9IjQiIGZpbGw9IndoaXRlIi8+PHJlY3QgeD0iMTYiIHk9IjYwIiB3aWR0aD0iNjQiIGhlaWdodD0iMTIiIHJ4PSI0IiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "handle_links": "preferred",
+  "share_target": {
+    "action": "/create",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "name",
+      "text": "job_title",
+      "url": "website"
+    }
+  },
+  "file_handlers": [
+    {
+      "action": "/batch",
+      "accept": {
+        "text/csv": [".csv"]
+      },
+      "launch_type": "single-client"
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+businesscard",
+      "url": "/create?data=%s"
+    }
+  ]
+}

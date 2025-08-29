@@ -1,0 +1,167 @@
+{% extends "layout.html" %}
+
+{% block title %}Create Card - Business Card Generator{% endblock %}
+
+{% block content %}
+<div class="create-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="create-card">
+                    <div class="create-header">
+                        <h2><i class="fas fa-plus-circle me-2"></i>Create Business Card</h2>
+                        <p>Fill in your details to create a professional business card</p>
+                    </div>
+                    
+                    <form method="POST" action="{{ url_for('preview') }}" enctype="multipart/form-data" class="create-form">
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h4><i class="fas fa-user me-2"></i>Personal Information</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Full Name *</label>
+                                        <input type="text" class="form-control" id="name" name="name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="job_title">Job Title</label>
+                                        <input type="text" class="form-control" id="job_title" name="job_title">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Company</label>
+                                <input type="text" class="form-control" id="company" name="company">
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Information -->
+                        <div class="form-section">
+                            <h4><i class="fas fa-address-book me-2"></i>Contact Information</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone">Phone</label>
+                                        <input type="tel" class="form-control" id="phone" name="phone">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="website">Website</label>
+                                        <input type="url" class="form-control" id="website" name="website">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="address">Address</label>
+                                        <input type="text" class="form-control" id="address" name="address">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Design Options -->
+                        <div class="form-section">
+                            <h4><i class="fas fa-palette me-2"></i>Design Options</h4>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="template">Template</label>
+                                        <select class="form-control" id="template" name="template">
+                                            <option value="executive_premium">Executive Premium</option>
+                                            <option value="modern_gradient">Modern Gradient</option>
+                                            <option value="minimalist_pro">Minimalist Pro</option>
+                                            <option value="creative_artistic">Creative Artistic</option>
+                                            <option value="luxury_foil">Luxury Foil</option>
+                                            <option value="tech_neon">Tech Neon</option>
+                                            <option value="vintage_letterpress">Vintage Letterpress</option>
+                                            <option value="geometric_modern">Geometric Modern</option>
+                                            <option value="healthcare_pro">Healthcare Pro</option>
+                                            <option value="legal_classic">Legal Classic</option>
+                                            <option value="realestate_modern">Real Estate Modern</option>
+                                            <option value="finance_elite">Finance Elite</option>
+                                            <option value="startup_dynamic">Startup Dynamic</option>
+                                            <option value="consulting_premium">Consulting Premium</option>
+                                            <option value="creative_agency">Creative Agency</option>
+                                            <option value="tech_startup">Tech Startup</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="color_scheme">Color Scheme</label>
+                                        <select class="form-control" id="color_scheme" name="color_scheme">
+                                            <option value="executive_navy">Executive Navy</option>
+                                            <option value="luxury_gold">Luxury Gold</option>
+                                            <option value="tech_cyan">Tech Cyan</option>
+                                            <option value="creative_purple">Creative Purple</option>
+                                            <option value="medical_blue">Medical Blue</option>
+                                            <option value="finance_green">Finance Green</option>
+                                            <option value="law_burgundy">Law Burgundy</option>
+                                            <option value="startup_orange">Startup Orange</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="font_family">Font Family</label>
+                                        <select class="form-control" id="font_family" name="font_family">
+                                            <option value="serif_elegant">Serif Elegant</option>
+                                            <option value="sans_modern">Sans Modern</option>
+                                            <option value="sans_rounded">Sans Rounded</option>
+                                            <option value="mono_tech">Mono Tech</option>
+                                            <option value="script_luxury">Script Luxury</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Additional Options -->
+                        <div class="form-section">
+                            <h4><i class="fas fa-cog me-2"></i>Additional Options</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="logo">Logo Upload</label>
+                                        <input type="file" class="form-control" id="logo" name="logo" accept=".png,.jpg,.jpeg,.svg">
+                                        <small class="form-text text-muted">PNG, JPG, or SVG. Max 16MB.</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check mt-4">
+                                        <input class="form-check-input" type="checkbox" id="include_qr" name="include_qr">
+                                        <label class="form-check-label" for="include_qr">
+                                            Include QR Code (vCard)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-eye me-2"></i>Preview Card
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/card-preview.js') }}"></script>
+{% endblock %}
