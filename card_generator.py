@@ -69,20 +69,25 @@ class CardGenerator:
         
         # Font mappings (using system fonts with fallbacks)
         self.fonts = {
-            'serif_elegant': 'DejaVuSerif',
-            'sans_modern': 'DejaVuSans',
-            'sans_rounded': 'DejaVuSans',
-            'mono_tech': 'DejaVuSansMono',
-            'script_luxury': 'DejaVuSerif'
+            'serif_elegant': 'DejaVuSerif-Bold',
+            'sans_modern': 'DejaVuSans-Bold',
+            'sans_rounded': 'DejaVuSans-Bold',
+            'mono_tech': 'DejaVuSansMono-Bold',
+            'script_luxury': 'DejaVuSerif-Bold'
         }
 
     def get_font(self, font_family, size):
         """Get font with fallback to default"""
+        font_name = self.fonts.get(font_family, 'DejaVuSans-Bold')
         try:
-            font_name = self.fonts.get(font_family, 'DejaVuSans')
             return ImageFont.truetype(f"/usr/share/fonts/truetype/dejavu/{font_name}.ttf", size)
         except:
-            return ImageFont.load_default()
+            try:
+                # Fallback to regular font if bold not available
+                base_font = font_name.replace('-Bold', '') if '-Bold' in font_name else 'DejaVuSans'
+                return ImageFont.truetype(f"/usr/share/fonts/truetype/dejavu/{base_font}.ttf", size)
+            except:
+                return ImageFont.load_default()
 
     def create_gradient(self, width, height, color1, color2, direction='horizontal'):
         """Create gradient background"""
@@ -135,9 +140,9 @@ END:VCARD"""
             draw.rectangle([0, 0, width, height], fill=colors['primary'])
             
             # Text positioning with larger fonts
-            name_font = self.get_font('serif_elegant', 56)
-            title_font = self.get_font('sans_modern', 28)
-            contact_font = self.get_font('sans_modern', 22)
+            name_font = self.get_font('serif_elegant', 72)
+            title_font = self.get_font('sans_modern', 36)
+            contact_font = self.get_font('sans_modern', 28)
             
             # Name
             if card_data.get('name'):
@@ -154,7 +159,7 @@ END:VCARD"""
             for field in ['email', 'phone', 'website', 'address']:
                 if card_data.get(field):
                     draw.text((50, y_pos), card_data[field], fill=colors['light'], font=contact_font)
-                    y_pos += 40
+                    y_pos += 50
             
             # Logo placement (top right)
             if logo_img:
@@ -174,9 +179,9 @@ END:VCARD"""
             overlays.append((gradient_img, (0, 0)))
             
             # Add text on gradient with larger fonts
-            name_font = self.get_font('sans_modern', 52)
-            title_font = self.get_font('sans_modern', 26)
-            contact_font = self.get_font('sans_modern', 20)
+            name_font = self.get_font('sans_modern', 68)
+            title_font = self.get_font('sans_modern', 34)
+            contact_font = self.get_font('sans_modern', 26)
             
             if card_data.get('name'):
                 draw.text((50, 50), card_data.get('name', ''), fill='white', font=name_font)
@@ -190,7 +195,7 @@ END:VCARD"""
             for field in ['email', 'phone', 'website', 'address']:
                 if card_data.get(field):
                     draw.text((50, y_pos), card_data[field], fill='white', font=contact_font)
-                    y_pos += 35
+                    y_pos += 42
             
             # Logo and QR for gradient template
             if logo_img:
@@ -210,9 +215,9 @@ END:VCARD"""
             
             # Black text on white with larger fonts
             text_color = '#000000'
-            name_font = self.get_font('sans_modern', 50)
-            title_font = self.get_font('sans_modern', 24)
-            contact_font = self.get_font('sans_modern', 20)
+            name_font = self.get_font('sans_modern', 64)
+            title_font = self.get_font('sans_modern', 32)
+            contact_font = self.get_font('sans_modern', 26)
             
             if card_data.get('name'):
                 draw.text((30, 30), card_data.get('name', ''), fill=text_color, font=name_font)
@@ -226,7 +231,7 @@ END:VCARD"""
             for field in ['email', 'phone', 'website', 'address']:
                 if card_data.get(field):
                     draw.text((30, y_pos), card_data[field], fill=text_color, font=contact_font)
-                    y_pos += 32
+                    y_pos += 40
             
             # Logo and QR for minimalist template
             if logo_img:
@@ -242,9 +247,9 @@ END:VCARD"""
         else:
             # Default template - fallback
             draw.rectangle([0, 0, width, height], fill=colors['primary'])
-            name_font = self.get_font('sans_modern', 40)
-            title_font = self.get_font('sans_modern', 20)
-            contact_font = self.get_font('sans_modern', 16)
+            name_font = self.get_font('sans_modern', 60)
+            title_font = self.get_font('sans_modern', 30)
+            contact_font = self.get_font('sans_modern', 24)
             
             if card_data.get('name'):
                 draw.text((50, 45), card_data.get('name', ''), fill=colors['text'], font=name_font)
@@ -258,7 +263,7 @@ END:VCARD"""
             for field in ['email', 'phone', 'website', 'address']:
                 if card_data.get(field):
                     draw.text((50, y_pos), card_data[field], fill=colors['light'], font=contact_font)
-                    y_pos += 35
+                    y_pos += 38
             
             # Logo and QR for default template
             if logo_img:
