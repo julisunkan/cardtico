@@ -29,39 +29,27 @@
   ],
   "icons": [
     {
-      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCA3MiA3MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHJ4PSIxNiIgZmlsbD0iIzFlM2E4YSIvPjxyZWN0IHg9IjE2IiB5PSIyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0id2hpdGUiLz48Y2lyY2xlIGN4PSI1NiIgY3k9IjU2IiByPSI0IiBmaWxsPSIjNjBhNWZhIi8+PC9zdmc+",
-      "sizes": "72x72",
-      "type": "image/svg+xml",
+      "src": "/static/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHJ4PSIyMCIgZmlsbD0iIzFlM2E4YSIvPjxyZWN0IHg9IjIwIiB5PSIyOCIgd2lkdGg9IjU2IiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0id2hpdGUiLz48Y2lyY2xlIGN4PSI3NiIgY3k9Ijc2IiByPSI2IiBmaWxsPSIjNjBhNWZhIi8+PC9zdmc+",
-      "sizes": "96x96",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    },
-    {
-      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyOCIgaGVpZ2h0PSIxMjgiIHJ4PSIyOCIgZmlsbD0iIzFlM2E4YSIvPjxyZWN0IHg9IjI0IiB5PSIzNiIgd2lkdGg9IjgwIiBoZWlnaHQ9IjQ4IiByeD0iOCIgZmlsbD0id2hpdGUiLz48Y2lyY2xlIGN4PSI5NiIgY3k9Ijk2IiByPSI4IiBmaWxsPSIjNjBhNWZhIi8+PC9zdmc+",
-      "sizes": "128x128",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    },
-    {
-      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSI0NCIgZmlsbD0iIzFlM2E4YSIvPjxyZWN0IHg9IjMyIiB5PSI1NiIgd2lkdGg9IjEyOCIgaGVpZ2h0PSI4MCIgcng9IjEyIiBmaWxsPSJ3aGl0ZSIvPjxjaXJjbGUgY3g9IjE0NCIgY3k9IjE0NCIgcj0iMTIiIGZpbGw9IiM2MGE1ZmEiLz48L3N2Zz4=",
+      "src": "/static/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMTYiIGZpbGw9IiMxZTNhOGEiLz48cmVjdCB4PSI4MCIgeT0iMTQ0IiB3aWR0aD0iMzUyIiBoZWlnaHQ9IjIyNCIgcng9IjMyIiBmaWxsPSJ3aGl0ZSIvPjxjaXJjbGUgY3g9IjM4NCIgY3k9IjM4NCIgcj0iMzIiIGZpbGw9IiM2MGE1ZmEiLz48dGV4dCB4PSIyNTYiIHk9IjI0MCIgZmlsbD0iIzFlM2E4YSIgZm9udC1zaXplPSI0OCIgZm9udC1mYW1pbHk9IkludGVyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXdlaWdodD0iNjAwIj5DQVJEPC90ZXh0Pjx0ZXh0IHg9IjI1NiIgeT0iMjg4IiBmaWxsPSIjM2I4MmY2IiBmb250LXNpemU9IjMyIiBmb250LWZhbWlseT0iSW50ZXIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdFTjwvdGV4dD48L3N2Zz4=",
+      "src": "/static/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyOCIgaGVpZ2h0PSIxMjgiIHJ4PSIyOCIgZmlsbD0iIzFlM2E4YSIvPjxtYXNrIGlkPSJtYXNrIj48cmVjdCB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgZmlsbD0iYmxhY2siLz48cmVjdCB4PSIyNCIgeT0iMzYiIHdpZHRoPSI4MCIgaGVpZ2h0PSI0OCIgcng9IjgiIGZpbGw9IndoaXRlIi8+PC9tYXNrPjx1c2UgaHJlZj0iI21hc2siLz48L3N2Zz4=",
-      "sizes": "128x128",
-      "type": "image/svg+xml",
+      "src": "/static/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "maskable"
     }
   ],
