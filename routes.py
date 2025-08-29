@@ -157,6 +157,26 @@ def batch_upload():
     flash('Please upload a valid CSV file', 'error')
     return redirect(url_for('batch'))
 
+@app.route('/download_csv_template')
+def download_csv_template():
+    """Generate and serve CSV template for batch processing"""
+    template_content = '''name,job_title,company,email,phone,website,address,template,color_scheme,include_qr
+"John Smith","Senior Designer","Creative Agency","john@agency.com","(555) 123-4567","www.agency.com","123 Main St, City, State","executive_premium","executive_navy","true"
+"Sarah Johnson","Marketing Director","Tech Company","sarah@tech.com","(555) 234-5678","www.tech.com","456 Oak Ave, City, State","modern_gradient","tech_cyan","false"
+"Mike Johnson","Financial Advisor","Investment Firm","mike@finance.com","(555) 555-5555","www.finance.com","789 Pine St, City, State","minimalist_pro","finance_green","true"'''
+    
+    # Create temporary file
+    template_filename = f"business_cards_template_{uuid.uuid4().hex[:8]}.csv"
+    template_filepath = os.path.join(app.config['EXPORT_FOLDER'], template_filename)
+    
+    with open(template_filepath, 'w', encoding='utf-8', newline='') as f:
+        f.write(template_content)
+    
+    # Schedule cleanup
+    threading.Timer(60.0, cleanup_file, args=[template_filepath]).start()
+    
+    return send_file(template_filepath, as_attachment=True, download_name='business_cards_template.csv')
+
 @app.errorhandler(413)
 def too_large(e):
     flash('File is too large. Maximum size is 16MB.', 'error')

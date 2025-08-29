@@ -187,22 +187,9 @@ class BatchProcessor {
     }
 
     downloadCSVTemplate() {
-        const template = `name,job_title,company,email,phone,website,address,template,color_scheme,include_qr
-"John Smith","Senior Designer","Creative Agency","john@example.com","(555) 123-4567","www.example.com","123 Main St, City, State","executive_premium","executive_navy","true"
-"Jane Doe","Marketing Manager","Tech Startup","jane@startup.com","(555) 987-6543","www.startup.com","456 Oak Ave, City, State","modern_gradient","tech_cyan","false"
-"Mike Johnson","Financial Advisor","Investment Firm","mike@finance.com","(555) 555-5555","www.finance.com","789 Pine St, City, State","minimalist_pro","finance_green","true"`;
-
-        const blob = new Blob([template], { type: 'text/csv' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = url;
-        a.download = 'business_cards_template.csv';
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
-
+        // Use server-side download instead of blob
+        window.location.href = '/download_csv_template';
+        
         this.showSuccess('Template downloaded! Fill it out and upload to generate cards.');
     }
 
