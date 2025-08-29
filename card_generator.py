@@ -191,6 +191,17 @@ END:VCARD"""
                 if card_data.get(field):
                     draw.text((50, y_pos), card_data[field], fill='white', font=contact_font)
                     y_pos += 28
+            
+            # Logo and QR for gradient template
+            if logo_img:
+                logo_size = (90, 90)
+                logo_resized = logo_img.resize(logo_size, Image.Resampling.LANCZOS)
+                overlays.append((logo_resized, (width - 110, 20)))
+            
+            if qr_img:
+                qr_size = (90, 90)
+                qr_resized = qr_img.resize(qr_size, Image.Resampling.LANCZOS)
+                overlays.append((qr_resized, (width - 110, height - 110)))
         
         elif template == 'minimalist_pro':
             # Clean white background with accent line
@@ -248,6 +259,17 @@ END:VCARD"""
                 if card_data.get(field):
                     draw.text((50, y_pos), card_data[field], fill=colors['light'], font=contact_font)
                     y_pos += 26
+            
+            # Logo and QR for default template
+            if logo_img:
+                logo_size = (85, 85)
+                logo_resized = logo_img.resize(logo_size, Image.Resampling.LANCZOS)
+                overlays.append((logo_resized, (width - 105, 25)))
+            
+            if qr_img:
+                qr_size = (85, 85)
+                qr_resized = qr_img.resize(qr_size, Image.Resampling.LANCZOS)
+                overlays.append((qr_resized, (width - 105, height - 105)))
         
         return overlays
 
@@ -265,7 +287,11 @@ END:VCARD"""
         logo_img = None
         if logo_path and os.path.exists(logo_path):
             try:
-                logo_img = Image.open(logo_path).convert('RGBA')
+                logo_img = Image.open(logo_path)
+                # Ensure logo has proper format for overlay
+                if logo_img.mode not in ('RGBA', 'RGB'):
+                    logo_img = logo_img.convert('RGBA')
+                print(f"Logo loaded successfully: {logo_path}")
             except Exception as e:
                 print(f"Error loading logo: {e}")
         
@@ -278,13 +304,21 @@ END:VCARD"""
         template = card_data.get('template', 'executive_premium')
         overlays = self.apply_template(draw, card_data, colors, template, logo_img, qr_img)
         
-        # Paste overlays
+        # Paste overlays with improved handling
         if overlays:
             for overlay, position in overlays:
                 if isinstance(overlay, Image.Image):
-                    if overlay.mode == 'RGBA':
-                        img.paste(overlay, position, overlay)
-                    else:
+                    try:
+                        if overlay.mode == 'RGBA':
+                            # Handle transparency properly
+                            img.paste(overlay, position, overlay)
+                        else:
+                            # Convert to RGBA for consistent handling
+                            overlay_rgba = overlay.convert('RGBA')
+                            img.paste(overlay_rgba, position, overlay_rgba)
+                    except Exception as e:
+                        print(f"Error applying overlay: {e}")
+                        # Fallback: paste without alpha
                         img.paste(overlay, position)
         
         # Generate filename
