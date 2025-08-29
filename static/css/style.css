@@ -1740,11 +1740,13 @@ body {
   left: 20px;
   z-index: 3;
   color: white;
+  text-align: left;
 }
 
 .business-card-preview.minimalist_pro .card-main-content {
   left: 30px;
   color: #1f2937;
+  text-align: left;
 }
 
 .card-name {
@@ -1785,11 +1787,13 @@ body {
   left: 20px;
   z-index: 3;
   color: white;
+  text-align: left;
 }
 
 .business-card-preview.minimalist_pro .card-contact-area {
   left: 30px;
   color: #1f2937;
+  text-align: left;
 }
 
 .contact-line {
