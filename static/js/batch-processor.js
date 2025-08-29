@@ -208,6 +208,8 @@ class BatchProcessor {
 
             // Show processing message
             const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnContent = submitBtn.innerHTML;
+            
             if (submitBtn) {
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<span class="spinner me-2"></span>Processing cards... This may take a while.';
@@ -215,7 +217,53 @@ class BatchProcessor {
 
             // Add progress indicator
             this.showProcessingProgress();
+            
+            // Reset UI after download completes (detect by window focus returning)
+            this.resetUIAfterDownload(submitBtn, originalBtnContent);
         });
+    }
+
+    resetUIAfterDownload(submitBtn, originalBtnContent) {
+        // Set a timer to reset the UI after a reasonable time
+        const resetTimer = setTimeout(() => {
+            this.resetFormUI(submitBtn, originalBtnContent);
+        }, 10000); // 10 seconds timeout
+
+        // Listen for window focus to detect when user returns after download
+        let focusResetExecuted = false;
+        const onWindowFocus = () => {
+            if (!focusResetExecuted) {
+                focusResetExecuted = true;
+                clearTimeout(resetTimer);
+                // Small delay to ensure download completed
+                setTimeout(() => {
+                    this.resetFormUI(submitBtn, originalBtnContent);
+                }, 2000);
+                window.removeEventListener('focus', onWindowFocus);
+            }
+        };
+        
+        // Listen for focus events (user returning to tab after download)
+        setTimeout(() => {
+            window.addEventListener('focus', onWindowFocus);
+        }, 1000);
+    }
+
+    resetFormUI(submitBtn, originalBtnContent) {
+        // Reset submit button
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnContent;
+        }
+
+        // Remove progress indicator
+        const progressContainer = document.querySelector('.processing-progress');
+        if (progressContainer) {
+            progressContainer.remove();
+        }
+
+        // Show success message
+        this.showSuccess('✅ Batch processing complete! Your ZIP file has been downloaded.');
     }
 
     showProcessingProgress() {
