@@ -3,105 +3,117 @@
 {% block title %}Home - Business Card Generator{% endblock %}
 
 {% block content %}
-<div class="hero-section">
-    <div class="container">
-        <div class="row align-items-center min-vh-100">
-            <div class="col-lg-6">
-                <div class="hero-content">
-                    <h1 class="hero-title text-center">Business Card Generator</h1>
-                    <p class="hero-subtitle">Create stunning business cards with our advanced PWA generator. Choose from 15+ templates, customize colors, and export in multiple formats.</p>
-                    
-                    <div class="feature-list">
-                        <div class="feature-item">
-                            <i class="fas fa-palette"></i>
-                            <span>15+ Professional Templates</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-mobile-alt"></i>
-                            <span>Mobile-First Design</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-download"></i>
-                            <span>Multiple Export Formats</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-layer-group"></i>
-                            <span>Batch Processing</span>
-                        </div>
-                    </div>
-                    
-                    <div class="hero-actions">
-                        <a href="{{ url_for('create') }}" class="btn btn-primary btn-lg">
-                            <i class="fas fa-plus-circle me-2"></i>Create Card
-                        </a>
-                        <a href="{{ url_for('batch') }}" class="btn btn-outline-light btn-lg">
-                            <i class="fas fa-layer-group me-2"></i>Batch Generate
-                        </a>
-                    </div>
+<div class="mobile-home">
+    <div class="welcome-section">
+        <div class="welcome-card">
+            <h1 class="welcome-title">Business Card Generator</h1>
+            <p class="welcome-subtitle">Create professional business cards on the go</p>
+        </div>
+    </div>
+
+    <div class="quick-actions">
+        <div class="action-grid">
+            <a href="{{ url_for('create') }}" class="action-card primary">
+                <div class="action-icon">
+                    <i class="fas fa-plus-circle"></i>
+                </div>
+                <div class="action-content">
+                    <h3>Create Card</h3>
+                    <p>Design your card</p>
+                </div>
+                <div class="action-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </a>
+
+            <a href="{{ url_for('batch') }}" class="action-card secondary">
+                <div class="action-icon">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <div class="action-content">
+                    <h3>Batch Generate</h3>
+                    <p>Create multiple cards</p>
+                </div>
+                <div class="action-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="features-grid">
+        <div class="feature-row">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="feature-info">
+                    <h4>15+ Templates</h4>
+                    <p>Professional designs</p>
                 </div>
             </div>
-            
-            <div class="col-lg-6">
-                <div class="hero-image">
-                    <div class="card-preview-stack">
-                        <div class="sample-card card-1">
-                            <div class="card-content">
-                                <h3>John Smith</h3>
-                                <p>Senior Designer</p>
-                                <p>Creative Agency</p>
-                            </div>
-                        </div>
-                        <div class="sample-card card-2">
-                            <div class="card-content">
-                                <h3>Sarah Johnson</h3>
-                                <p>Marketing Director</p>
-                                <p>Tech Startup</p>
-                            </div>
-                        </div>
-                        <div class="sample-card card-3">
-                            <div class="card-content">
-                                <h3>Mike Chen</h3>
-                                <p>Financial Advisor</p>
-                                <p>Investment Firm</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-swatchbook"></i>
+                </div>
+                <div class="feature-info">
+                    <h4>Color Schemes</h4>
+                    <p>Psychology-based palettes</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="feature-row">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <div class="feature-info">
+                    <h4>QR Codes</h4>
+                    <p>Auto vCard generation</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="feature-info">
+                    <h4>Multiple Formats</h4>
+                    <p>PNG, PDF, JPG, HTML</p>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="features-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-6 mb-4">
-                <div class="feature-card">
-                    <i class="fas fa-palette"></i>
-                    <h3>Templates</h3>
-                    <p>15+ professional designs</p>
+    <div class="sample-preview">
+        <h3 class="section-title">Sample Designs</h3>
+        <div class="preview-cards">
+            <div class="preview-card">
+                <div class="card-mini executive">
+                    <div class="mini-content">
+                        <div class="mini-name">John Smith</div>
+                        <div class="mini-title">Senior Designer</div>
+                    </div>
                 </div>
+                <span>Executive</span>
             </div>
-            <div class="col-md-3 col-6 mb-4">
-                <div class="feature-card">
-                    <i class="fas fa-swatchbook"></i>
-                    <h3>Color Schemes</h3>
-                    <p>8+ psychology-based palettes</p>
+            <div class="preview-card">
+                <div class="card-mini modern">
+                    <div class="mini-content">
+                        <div class="mini-name">Sarah Johnson</div>
+                        <div class="mini-title">Marketing Director</div>
+                    </div>
                 </div>
+                <span>Modern</span>
             </div>
-            <div class="col-md-3 col-6 mb-4">
-                <div class="feature-card">
-                    <i class="fas fa-qrcode"></i>
-                    <h3>QR Codes</h3>
-                    <p>Auto vCard generation</p>
+            <div class="preview-card">
+                <div class="card-mini minimal">
+                    <div class="mini-content">
+                        <div class="mini-name">Mike Chen</div>
+                        <div class="mini-title">Financial Advisor</div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-6 mb-4">
-                <div class="feature-card">
-                    <i class="fas fa-print"></i>
-                    <h3>Print Ready</h3>
-                    <p>300 DPI with bleed areas</p>
-                </div>
+                <span>Minimal</span>
             </div>
         </div>
     </div>
