@@ -1569,3 +1569,264 @@ body {
     border-color: white;
   }
 }
+
+/* Business Card Preview Styling */
+.business-card-preview {
+  width: 350px;
+  height: 200px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2rem auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+  transition: transform 0.3s ease;
+}
+
+.business-card-preview:hover {
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+}
+
+.card-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/* Executive Premium Template */
+.business-card-preview.executive_premium.executive_navy .card-background {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+}
+
+.business-card-preview.executive_premium.luxury_gold .card-background {
+  background: linear-gradient(135deg, #92400e 0%, #d97706 100%);
+}
+
+.business-card-preview.executive_premium.tech_cyan .card-background {
+  background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%);
+}
+
+.business-card-preview.executive_premium.creative_purple .card-background {
+  background: linear-gradient(135deg, #7c2d12 0%, #a21caf 100%);
+}
+
+.business-card-preview.executive_premium.medical_blue .card-background {
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+}
+
+.business-card-preview.executive_premium.finance_green .card-background {
+  background: linear-gradient(135deg, #065f46 0%, #059669 100%);
+}
+
+.business-card-preview.executive_premium.law_burgundy .card-background {
+  background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+}
+
+.business-card-preview.executive_premium.startup_orange .card-background {
+  background: linear-gradient(135deg, #c2410c 0%, #ea580c 100%);
+}
+
+/* Modern Gradient Template */
+.business-card-preview.modern_gradient .card-background {
+  background: linear-gradient(45deg, #1e3a8a 0%, #3b82f6 100%);
+}
+
+/* Minimalist Pro Template */
+.business-card-preview.minimalist_pro .card-background {
+  background: #ffffff;
+}
+
+.business-card-preview.minimalist_pro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 100%;
+  background: #60a5fa;
+  z-index: 2;
+}
+
+/* Card Content Positioning */
+.card-main-content {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+  color: white;
+}
+
+.business-card-preview.minimalist_pro .card-main-content {
+  left: 30px;
+  color: #1f2937;
+}
+
+.card-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  font-family: 'Inter', serif;
+  line-height: 1.1;
+}
+
+.card-job-title {
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  opacity: 0.9;
+  color: #60a5fa;
+}
+
+.business-card-preview.minimalist_pro .card-job-title {
+  color: #1e3a8a;
+}
+
+.card-company {
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #fbbf24;
+}
+
+.business-card-preview.minimalist_pro .card-company {
+  color: #60a5fa;
+}
+
+/* Contact Information */
+.card-contact-area {
+  position: absolute;
+  top: 95px;
+  left: 20px;
+  z-index: 3;
+  color: white;
+}
+
+.business-card-preview.minimalist_pro .card-contact-area {
+  left: 30px;
+  color: #1f2937;
+}
+
+.contact-line {
+  font-size: 0.55rem;
+  margin-bottom: 0.35rem;
+  opacity: 0.9;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.2;
+}
+
+/* Logo Positioning */
+.card-logo {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  z-index: 4;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* QR Code Positioning */
+.card-qr {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  z-index: 4;
+}
+
+.qr-placeholder {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1f2937;
+}
+
+.qr-placeholder i {
+  font-size: 1.2rem;
+}
+
+/* Template-specific adjustments */
+.business-card-preview.executive_premium .card-name {
+  font-size: 1.4rem;
+}
+
+.business-card-preview.modern_gradient .card-main-content {
+  top: 25px;
+}
+
+.business-card-preview.minimalist_pro .card-name {
+  font-size: 1.2rem;
+  color: #1f2937;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .business-card-preview {
+    width: 280px;
+    height: 160px;
+    transform: none;
+  }
+  
+  .card-name {
+    font-size: 1rem;
+  }
+  
+  .card-job-title, .card-company {
+    font-size: 0.6rem;
+  }
+  
+  .contact-line {
+    font-size: 0.45rem;
+  }
+  
+  .card-logo {
+    width: 35px;
+    height: 35px;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .card-qr {
+    width: 30px;
+    height: 30px;
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .card-main-content {
+    top: 15px;
+    left: 15px;
+  }
+  
+  .business-card-preview.minimalist_pro .card-main-content {
+    left: 20px;
+  }
+  
+  .card-contact-area {
+    top: 75px;
+    left: 15px;
+  }
+  
+  .business-card-preview.minimalist_pro .card-contact-area {
+    left: 20px;
+  }
+}

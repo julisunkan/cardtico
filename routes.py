@@ -4,7 +4,7 @@ import csv
 import zipfile
 import threading
 from datetime import datetime, timedelta
-from flask import render_template, request, redirect, url_for, flash, send_file, session, jsonify
+from flask import render_template, request, redirect, url_for, flash, send_file, session, jsonify, send_from_directory
 from werkzeug.utils import secure_filename
 from app import app
 from card_generator import CardGenerator
@@ -61,7 +61,19 @@ def preview():
         flash('Please fill out the card details first.', 'warning')
         return redirect(url_for('create'))
     
-    return render_template('preview.html', card_data=card_data)
+    logo_path = session.get('logo_path')
+    logo_url = None
+    if logo_path and os.path.exists(logo_path):
+        # Convert file path to URL path for the template
+        logo_filename = os.path.basename(logo_path)
+        logo_url = url_for('uploaded_file', filename=logo_filename)
+    
+    return render_template('preview.html', card_data=card_data, logo_url=logo_url)
+
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    """Serve uploaded files"""
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 @app.route('/generate_card/<format>')
 def generate_card(format):
