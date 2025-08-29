@@ -144,17 +144,17 @@ END:VCARD"""
                 draw.text((50, 50), card_data.get('name', ''), fill=colors['text'], font=name_font)
             # Title
             if card_data.get('job_title'):
-                draw.text((50, 110), card_data.get('job_title', ''), fill=colors['accent'], font=title_font)
+                draw.text((50, 120), card_data.get('job_title', ''), fill=colors['accent'], font=title_font)
             # Company
             if card_data.get('company'):
-                draw.text((50, 140), card_data.get('company', ''), fill=colors['highlight'], font=title_font)
+                draw.text((50, 160), card_data.get('company', ''), fill=colors['highlight'], font=title_font)
             
             # Contact info with better spacing
-            y_pos = 200
+            y_pos = 230
             for field in ['email', 'phone', 'website', 'address']:
                 if card_data.get(field):
                     draw.text((50, y_pos), card_data[field], fill=colors['light'], font=contact_font)
-                    y_pos += 30
+                    y_pos += 40
             
             # Logo placement (top right)
             if logo_img:
@@ -181,16 +181,16 @@ END:VCARD"""
             if card_data.get('name'):
                 draw.text((50, 50), card_data.get('name', ''), fill='white', font=name_font)
             if card_data.get('job_title'):
-                draw.text((50, 110), card_data.get('job_title', ''), fill='white', font=title_font)
+                draw.text((50, 115), card_data.get('job_title', ''), fill='white', font=title_font)
             if card_data.get('company'):
-                draw.text((50, 140), card_data.get('company', ''), fill='white', font=title_font)
+                draw.text((50, 155), card_data.get('company', ''), fill='white', font=title_font)
             
             # Contact info for gradient template with better spacing
-            y_pos = 185
+            y_pos = 210
             for field in ['email', 'phone', 'website', 'address']:
                 if card_data.get(field):
                     draw.text((50, y_pos), card_data[field], fill='white', font=contact_font)
-                    y_pos += 28
+                    y_pos += 35
             
             # Logo and QR for gradient template
             if logo_img:
@@ -217,16 +217,16 @@ END:VCARD"""
             if card_data.get('name'):
                 draw.text((30, 30), card_data.get('name', ''), fill=text_color, font=name_font)
             if card_data.get('job_title'):
-                draw.text((30, 80), card_data.get('job_title', ''), fill=colors['primary'], font=title_font)
+                draw.text((30, 90), card_data.get('job_title', ''), fill=colors['primary'], font=title_font)
             if card_data.get('company'):
-                draw.text((30, 110), card_data.get('company', ''), fill=colors['accent'], font=title_font)
+                draw.text((30, 125), card_data.get('company', ''), fill=colors['accent'], font=title_font)
                 
             # Contact info with improved spacing
-            y_pos = 155
+            y_pos = 180
             for field in ['email', 'phone', 'website', 'address']:
                 if card_data.get(field):
                     draw.text((30, y_pos), card_data[field], fill=text_color, font=contact_font)
-                    y_pos += 25
+                    y_pos += 32
             
             # Logo and QR for minimalist template
             if logo_img:
@@ -249,16 +249,16 @@ END:VCARD"""
             if card_data.get('name'):
                 draw.text((50, 45), card_data.get('name', ''), fill=colors['text'], font=name_font)
             if card_data.get('job_title'):
-                draw.text((50, 115), card_data.get('job_title', ''), fill=colors['accent'], font=title_font)
+                draw.text((50, 105), card_data.get('job_title', ''), fill=colors['accent'], font=title_font)
             if card_data.get('company'):
-                draw.text((50, 150), card_data.get('company', ''), fill=colors['highlight'], font=title_font)
+                draw.text((50, 140), card_data.get('company', ''), fill=colors['highlight'], font=title_font)
             
             # Contact info for default template with better spacing
-            y_pos = 190
+            y_pos = 200
             for field in ['email', 'phone', 'website', 'address']:
                 if card_data.get(field):
                     draw.text((50, y_pos), card_data[field], fill=colors['light'], font=contact_font)
-                    y_pos += 26
+                    y_pos += 35
             
             # Logo and QR for default template
             if logo_img:
