@@ -1,0 +1,151 @@
+
+# Business Card Generator Web App Development Prompt
+
+## Project Overview
+Create a professional, mobile-first Progressive Web App (PWA) for generating custom business cards with advanced design templates, batch processing capabilities, and multiple export formats.
+
+## Core Features Required
+
+### 1. Card Generation System
+- **Template Engine**: Implement 15+ professional card templates including:
+  - Executive Premium (navy, luxury styling)
+  - Modern Gradient (diagonal gradients, glassmorphism)
+  - Minimalist Pro (clean, typography-focused)
+  - Creative Artistic (bold geometric shapes)
+  - Luxury Foil (metallic effects simulation)
+  - Tech Neon (dark theme, grid patterns)
+  - Vintage Letterpress (textured, classic)
+  - Geometric Modern (angular designs)
+  - Industry-specific templates (healthcare, legal, real estate, etc.)
+
+- **Color Scheme System**: 8+ predefined color palettes with psychological impact:
+  - Executive Navy, Luxury Gold, Tech Cyan, Creative Purple
+  - Medical Blue, Finance Green, Law Burgundy, Startup Orange
+  - Each palette includes: primary, secondary, accent, text, light, dark, metallic, highlight colors
+
+- **Typography System**: Professional font handling with fallbacks:
+  - Serif Elegant, Sans Modern, Sans Rounded, Mono Tech, Script Luxury
+  - Customizable text formatting (size, weight, alignment, italic)
+  - Smart text wrapping and positioning
+
+### 2. User Interface Design
+- **Mobile-First PWA**: Responsive design optimized for mobile devices
+- **Bottom Navigation**: Touch-friendly navigation with Home, Create, Preview, Batch sections
+- **Progressive Enhancement**: Works offline with service worker caching
+- **Glass Morphism**: Modern UI with backdrop blur effects and gradients
+- **Touch Interactions**: Haptic feedback, ripple effects, gesture support
+
+### 3. Card Customization Features
+- **Basic Information Fields**: Name, job title, company, email, phone, website, address
+- **Advanced Typography Controls**: Font selection, sizing, weight, alignment for each text element
+- **Logo Upload**: Secure file handling with validation (PNG, JPG, SVG support)
+- **QR Code Integration**: Automatic vCard QR code generation with custom styling
+- **Real-time Preview**: Live preview updates as user modifies settings
+
+### 4. Export System
+- **Multiple Formats**:
+  - HD PNG (high-resolution with transparency)
+  - HD JPG (high-quality JPEG for web use)
+  - Professional PDF (vector graphics, print-ready)
+  - Animated HTML (interactive 3D flip card)
+- **Print Specifications**: 3.5" x 2" cards at 300 DPI with bleed areas
+- **Batch Export**: ZIP archives with organized file naming
+
+### 5. Batch Processing
+- **CSV Upload**: Process multiple cards from spreadsheet data
+- **Required Columns**: name, job_title, company, email
+- **Optional Columns**: phone, website, address, template, color_scheme, include_qr
+- **Bulk Export**: Generate ZIP archives with all cards in selected format
+
+## Technical Architecture
+
+### Backend (Python/Flask)
+- **Web Framework**: Flask with modular route organization
+- **Image Processing**: PIL/Pillow for card generation and manipulation
+- **PDF Generation**: ReportLab for vector-based PDF output
+- **File Handling**: Werkzeug for secure uploads with validation
+- **Session Management**: Flask sessions for stateless operation
+- **QR Code Library**: qrcode for contact information encoding
+
+### Frontend (HTML/CSS/JS)
+- **CSS Framework**: Bootstrap 5 with custom mobile optimizations
+- **Icon Library**: Font Awesome 6 for consistent iconography
+- **Typography**: Inter font family for modern readability
+- **PWA Features**: Service worker, manifest, offline capability
+- **JavaScript**: Vanilla JS with modular class architecture
+
+### File Organization
+```
+├── app.py                    # Flask application setup
+├── main.py                   # Application entry point
+├── routes.py             # Route handlers
+├── card_generator.py # Card generation engine
+├── cleanup_task.py           # File cleanup service
+├── static/
+│   ├── css/                  # Stylesheets
+│   ├── js/                   # JavaScript modules
+│   ├── manifest.json         # PWA manifest
+│   └── sw.js                 # Service worker
+├── templates/                # Jinja2 templates
+├── uploads/                  # Temporary file storage
+└── exports/                  # Generated card outputs
+```
+
+## Key Implementation Details
+
+### Card Generation Pipeline
+1. **Data Collection**: Gather user input through multi-step form
+2. **Template Selection**: Apply chosen design template with color scheme
+3. **Text Rendering**: Format text with custom typography settings
+4. **Logo Integration**: Process and position uploaded logos
+5. **QR Code Generation**: Create vCard QR codes with styling
+6. **Export Processing**: Generate files in requested formats
+7. **Cleanup Service**: Automatic file deletion after 60 seconds
+
+### Advanced Features
+- **Smart Font Fallbacks**: Graceful degradation for missing fonts
+- **Gradient Generation**: Algorithmic color gradients for backgrounds
+- **Shadow Effects**: Professional drop shadows and embossing
+- **Image Optimization**: Automatic resizing and format conversion
+- **Error Handling**: Comprehensive validation and user feedback
+
+### Security Considerations
+- **File Upload Validation**: Size limits, extension checking, secure naming
+- **Session Security**: Secure session keys and data isolation
+- **Input Sanitization**: Prevent XSS and injection attacks
+- **Temporary Storage**: Automatic cleanup of sensitive files
+
+### Performance Optimizations
+- **Image Caching**: Efficient preview generation and storage
+- **Batch Processing**: Memory-efficient handling of large datasets
+- **CDN Assets**: External delivery of CSS/JS frameworks
+- **Compression**: ZIP archives for multi-file downloads
+
+## Development Workflow
+
+### Setup Requirements
+- Python 3.11+ with Flask, Pillow, ReportLab, qrcode libraries
+- Modern web browser with PWA support
+- Mobile device or browser dev tools for testing
+
+### Testing Strategy
+- **Template Rendering**: Verify all 15+ templates generate correctly
+- **Export Formats**: Test PNG, JPG, PDF, HTML outputs
+- **Mobile Responsiveness**: Test on various screen sizes
+- **Batch Processing**: Validate CSV parsing and bulk generation
+- **PWA Features**: Test offline functionality and installation
+
+### Deployment Considerations
+- **Production Server**: Gunicorn WSGI server configuration
+- **Static Assets**: Proper cache headers for performance
+- **File Storage**: Temporary directory management
+- **Error Logging**: Comprehensive logging for debugging
+
+## Success Criteria
+- Generate professional business cards in under 3 seconds
+- Support batch processing of 100+ cards efficiently
+- Maintain responsive design across all device sizes
+- Achieve 95+ Lighthouse PWA score
+- Handle file uploads up to 16MB securely
+- Export high-quality print-ready files
+
