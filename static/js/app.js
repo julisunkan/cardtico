@@ -111,14 +111,11 @@ class BusinessCardApp {
     }
 
     addTouchFeedback() {
-        // Add haptic feedback for supported devices
+        // Add basic touch feedback without vibration
         const interactiveElements = document.querySelectorAll('.btn, .nav-item, .form-control, .export-btn');
         
         interactiveElements.forEach(element => {
             element.addEventListener('touchstart', () => {
-                if (navigator.vibrate) {
-                    navigator.vibrate(10); // 10ms vibration
-                }
                 element.style.transform = 'scale(0.98)';
             });
             
